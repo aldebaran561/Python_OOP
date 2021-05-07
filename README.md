@@ -126,48 +126,53 @@ At first, it is a little confusing the statement used in class, for example, whe
     Before a static method it is common to use a decorator ```@staticmethod```
     
     ```python
-class Calculo:
+        class Calculo:
 
-    @staticmethod #Decorator
-    def potencia(r): #This is a static method
-        return r ** 2
-```
+            @staticmethod #Decorator
+            def potencia(r): #This is a static method
+                return r ** 2
+    ```
 
     This kind of method
 
-        - Can't modify object instance state
-        - Can't modify class state
+     - Can't modify object instance state
+     - Can't modify class state
 
 - Class Methods: Instead of accepting a self parameter, class methods take a ```cls``` parameter that points to the class—and not the object instance—when the method is called. Because the class method only has access to this cls argument, it can’t modify object instance state. That would require access to self. However, class methods can still modify class state that applies across all instances of the class.
 
     Before a class methods it is common to use a decorator ```@classmethod```
     
     ```python
-class MethodTypes:
+    class MethodTypes:
 
-    name = "Ragnar"
+        name = "Ragnar"
 
-    def instanceMethod(self):
-        self.lastname = "Lothbrock"
-        print(self.name)
-        print(self.lastname)
+        def instanceMethod(self):
+            self.lastname = "Lothbrock"
+            print(self.name)
+            print(self.lastname)
 
-    @classmethod #Decorator
-    def classMethod(cls): #This is a class method
-        cls.name = "Lagertha"
-        print(cls.name)
-```
+        @classmethod #Decorator
+        def classMethod(cls): #This is a class method
+            cls.name = "Lagertha"
+            print(cls.name)
+    ```
     
     This kind of method
 
-        - Can't modify object instance state
-        - Can modify class state
+     - Can't modify object instance state
+     - Can modify class state
     
-- Instance Methods: Instance methods are the most common type of methods in Python classes. Instance methods must have ```self as``` a parameter, but you don't need to pass this in every time. Self is another Python special term. Inside any instance method, you can use self to access any data or methods that may reside in your class. You won't be able to access them without going through self.
+- Instance Methods: Instance methods are the most common type of methods in Python classes. Instance methods must have ```self``` as a parameter, but you don't need to pass this in every time. Self is another Python special term. Inside any instance method, you can use self to access any data or methods that may reside in your class. You won't be able to access them without going through self.
 
-```python
-class Parrot:
+    ```python
+    class Parrot:
 
-    def fly(self): #This is a instance method
-        print("Parrot can fly")
-        ```
+        def fly(self): #This is a instance method
+            print("Parrot can fly")
+     ```
+
+    This kind of method
+
+     - Can modify object instance state
+     - Can modify class state
